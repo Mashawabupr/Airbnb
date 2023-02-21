@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 function Header() {
   return (
-    <header className="sticky  top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
+    <header className="sticky  top-0 z-50 grid grid-cols-3 bg-white shadow-md px-5 py-2 md:px-10">
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <Image
           src="https://links.papareact.com/qd3"
@@ -19,7 +19,7 @@ function Header() {
           placeholder="Start your search"
         />
         <svg
-          className="hidden md:inline-flex  bg-red-400 h-10 text-white rounded-full p-2 cursor-pointer"
+          className="hidden md:inline-flex  bg-red-400 h-8 text-white rounded-full p-2 cursor-pointer"
           fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"
