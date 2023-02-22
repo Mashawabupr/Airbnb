@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import InfoCards from "../components/InfoCards";
+import Mymap from "../components/Mymap";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 function Search({ searchResults }) {
@@ -28,6 +29,9 @@ function Search({ searchResults }) {
           {searchResults.map((item) => (
             <InfoCards key={item.img} {...item} />
           ))}
+        </section>
+        <section className="">
+          <Mymap />
         </section>
       </main>
     </div>
