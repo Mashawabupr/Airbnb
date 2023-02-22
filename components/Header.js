@@ -1,13 +1,16 @@
 import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import { useRouter } from "next/router";
 import Image from "next/legacy/image";
 import { DateRangePicker } from "react-date-range";
-function Header() {
+function Header({ placeholder }) {
+
   let [searchInput, setSearchInput] = useState("");
   let [startDate, setStartDate] = useState(new Date());
   let [endDate, setEndDate] = useState(new Date());
   let [guests, setGuests] = useState(1);
+  let router = useRouter();
   let selectionRange = {
     startDate,
     endDate,
@@ -17,9 +20,23 @@ function Header() {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
   };
+  function handleRouter() {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        guests,
+      },
+    });
+  }
   return (
     <header className="sticky  top-0 z-50 grid grid-cols-3 bg-white shadow-md px-5 py-2 md:px-10">
-      <div className="relative flex items-center h-10 cursor-pointer my-auto">
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex items-center h-10 cursor-pointer my-auto"
+      >
         <Image
           src="https://links.papareact.com/qd3"
           layout="fill"
@@ -33,7 +50,7 @@ function Header() {
           value={searchInput}
           className="text-gray-600 bg-transparent outline-none flex-grow"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
         <svg
           className="hidden md:inline-flex  bg-red-400 h-8 text-white rounded-full p-2 cursor-pointer"
@@ -138,7 +155,12 @@ function Header() {
             >
               Cancel
             </button>
-            <button className="flex-grow text-red-400">Search</button>
+            <button
+              onClick={() => handleRouter()}
+              className="flex-grow text-red-400"
+            >
+              Search
+            </button>
           </div>
         </div>
       )}

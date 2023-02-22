@@ -5,7 +5,6 @@ import Smallcards from "../components/Smallcards";
 import Mediumcards from "../components/Mediumcards";
 import Largecard from "../components/Largecard";
 export default function Home({ dataMiniCards, dataMediumCards }) {
-  console.log(dataMediumCards);
   return (
     <div>
       <Head>
