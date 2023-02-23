@@ -4,6 +4,10 @@ import Banner from "../components/Banner";
 import Smallcards from "../components/Smallcards";
 import Mediumcards from "../components/Mediumcards";
 import Largecard from "../components/Largecard";
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
+  rel="stylesheet"
+></link>;
 export default function Home({ dataMiniCards, dataMediumCards }) {
   return (
     <div>

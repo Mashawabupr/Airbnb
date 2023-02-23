@@ -30,8 +30,8 @@ function Search({ searchResults }) {
             <InfoCards key={item.img} {...item} />
           ))}
         </section>
-        <section className="">
-          <Mymap />
+        <section className="hidden xl:inline-flex active:cursor-pointer xl:min-w-[600px] h-[600px]">
+          <Mymap searchResults={searchResults} />
         </section>
       </main>
     </div>
